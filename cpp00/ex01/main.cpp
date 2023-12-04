@@ -4,36 +4,23 @@
 
 int main()
 {
-    std::string input, name, surName, nickName, phoneNumber, darkSecret;
-    PhoneBook phoneBook; //phoneBook çalışmadı, bunu çözzzz
+    std::string input;
+    PhoneBook phoneBook;
     
     while (input != "EXIT")
     {
+        Menu:
         std::cout << "\n....::::MENU::::....\n" << std::endl;
         std::cout << "ADD" << std::endl;
         std::cout << "SEARCH" << std::endl;
         std::cout << "EXIT" << std::endl;
         std::cout << "Enter a command: "; 
-        std::cin >> input;
-
-        std::cin.ignore();
+        std::getline(std::cin, input);
 
         if (input == "ADD")
         {
             
-            std::cout << "Name Enter: ";
-            std::getline(std::cin, name);
-            std::cout << "Surname Enter: ";
-            std::getline(std::cin, surName);
-            std::cout << "Nickname Enter: ";
-            std::getline(std::cin, nickName);
-            std::cout << "Number Enter: ";
-            std::getline(std::cin, phoneNumber);
-            std::cout << "Secret Enter: ";
-            std::getline(std::cin, darkSecret);
-
-            Contact cnt1(name, surName, nickName, phoneNumber, darkSecret);
-            phoneBook.addBook(cnt1);
+            phoneBook.addBook();
         }
         else if (input == "SEARCH")
         {

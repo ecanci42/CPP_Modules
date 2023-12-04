@@ -9,7 +9,8 @@ class PhoneBook
 {
     private:
             Contact book[8];
-            int i = 0;
+            int count = 0;
+            int size = 0;
 
             
     public:
@@ -23,21 +24,27 @@ class PhoneBook
             {
                 std::cout << "Bye bye ~\n";
             }
-            
-            void addBook(Contact book)
+
+            std::string get_input(std::string str)
             {
-                while (i < 8)
+                std::string input;
+
+                while (input.empty())
                 {
-                    this->book[i] = book;
-                    i++;
-                    std::cout << "Contact added successfully." << std::endl;
-                    if (i == 8)
-                    {
-                        i = 0;
-                        break;
-                    }
-                    break;
+                    std::cout << str;
+                    std::getline(std::cin, input);
                 }
+                return (input);
+            }
+            
+            void addBook()
+            {
+                book[count].set_firstname(get_input("Name Enter: "));
+                book[count].set_lastname(get_input("Surname Enter: "));
+                book[count].set_nickname(get_input("Nickname Enter: "));
+                book[count].set_number(get_input("Number Enter: "));
+                book[count].set_secret(get_input("Secret Enter: "));
+                count = (count + 1) % 8;
             }
 
             std::string format_name(std::string str)
@@ -62,6 +69,7 @@ class PhoneBook
 
             void print(Contact contact)
             {
+                // sadece dolu olanlar yazılmalı
                 std::cout << "\nAll information that we have:\n\n";
                 std::cout << "First Name: " << contact.get_firstname() << std::endl;
                 std::cout << "Last Name: " << contact.get_lastname() << std::endl;
@@ -87,18 +95,22 @@ class PhoneBook
                     
                 }
                 std::cout << " ------------------------------------------- \n";
+
                 std::string str = "";
                 while (str == "" && !std::cin.eof())
                 {
                     std::cout << "Enter the index: ";
                     std::getline(std::cin, str);
-                    if (!(str[0] >= '1' && str[0] <= '8'))
+                    int turnInt = std::stoi(str);
+                    if (!(turnInt >= 1 && turnInt <= 8))
                     {
                         std::cout << "Invalid index! Try again!\n";
                         str = "";
                     }
+                    else if (!(this->book[turnInt - 1].get_firstname().empty()))
+                        this->print(this->book[turnInt - 1]);
                     else
-                        this->print(this->book[str[0] - '0' - 1]);
+                        std::cout << "No user is registered in this index!" << std::endl;
                 }
 
             }

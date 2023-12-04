@@ -17,16 +17,8 @@ class Contact
             {
                 
             }
-    
-            Contact(std::string name, std::string surName, std::string nickName, std::string phoneNumber, std::string darkSecret)
-            {
-                this->name = name;
-                this->surName = surName;
-                this->nickName = nickName;
-                this->phoneNumber = phoneNumber;
-                this->darkSecret = darkSecret;
-            }
 
+            // get
             std::string get_firstname(void)
             {
                 return (this->name);
@@ -46,7 +38,28 @@ class Contact
             std::string get_secret(void)
             {
                 return (this->darkSecret);
-            }      
+            } 
+            // set
+            void set_firstname(std::string name)
+            {
+                this->name = name;
+            }
+            void set_lastname(std::string surName)
+            {
+                this->surName = surName;
+            }
+            void set_nickname(std::string nickName)
+            {
+                this->nickName = nickName;
+            }
+            void set_number(std::string phoneNumber)
+            {
+                this->phoneNumber = phoneNumber;
+            }
+            void set_secret(std::string darkSecret)
+            {
+                this->darkSecret = darkSecret;
+            }
 };
 
 #endif
