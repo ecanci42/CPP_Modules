@@ -1,19 +1,21 @@
-NAME			= main
-CC				= c++
-CPPFLAGS		= -Wall -Werror -Wextra -std=c++98
-SOURCE			= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
-OBJS			= $(SOURCE:.cpp=.o)
-RM				= rm -rf
+NAME		= human
+CC			= c++
+SOURCE		= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+OBJS		= $(SOURCE:.cpp=.o)
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
+RM 			= rm -rf
 
-all:			$(NAME)
-				
-$(NAME):		$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
+all:		$(NAME)
 
-clean:			$(RM) $(OBJS)
+$(NAME):	$(OBJS)
+			$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
-fclean:			clean
-				$(RM) $(NAME)
+clean:
+			$(RM) $(OBJS)
 
-re:				fclean all
+fclean:		clean
+			$(RM) $(NAME)
 
-.PHONY:			all clean fclean re
+re:			fclean all
+
+.PHONY:		all clean fclean re

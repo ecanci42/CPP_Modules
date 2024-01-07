@@ -8,5 +8,6 @@ int main()
     bioHazard->announce();
     randomChump("bioHazard Nemesis");
     delete bioHazard;
+
     return (0);
 }

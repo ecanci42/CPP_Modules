@@ -13,15 +13,12 @@ int main()
         bob.attack();
     }
     {
-        // aşağıda ki senaryoda jim için 
-        // silah oluşturulmamasına
-        // rağmen jim silahla saldırıyor
 
-       // Weapon club = Weapon("crude spiked club");
+        Weapon club = Weapon("crude spiked club");
         HumanB jim("Jim");
-        //jim.setWeapon(club);
+        jim.setWeapon(club);
         jim.attack();
-        //club.setType("some other type of club");
+        club.setType("some other type of club");
         jim.attack();
     }
     return 0;

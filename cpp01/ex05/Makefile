@@ -1,19 +1,21 @@
-NAME			= harl
-CC				= c++
-SRC				= main.cpp Harl.cpp
-OBJS			= $(SRC:.cpp=.o)
-CPPFLAGS		= -Wall -Werror -Wextra -std=c++98
-RM				= rm -rf
+NAME		= harl
+CC			= c++
+SOURCE		= main.cpp Harl.cpp
+OBJS		= $(SOURCE:.cpp=.o)
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
+RM 			= rm -rf
 
-all:			$(NAME)
+all:		$(NAME)
 
-$(NAME):		$(OBJS) $(CC) $(CPPFLAGS) -o $(NAME)
+$(NAME):	$(OBJS)
+			$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
-clean:			$(RM) $(OBJS)
+clean:
+			$(RM) $(OBJS)
 
-fclean:			clean
-				$(RM) $(NAME)
+fclean:		clean
+			$(RM) $(NAME)
 
-re:				fclean all
+re:			fclean all
 
-.PHONY:			all clean fclean re
+.PHONY:		all clean fclean re

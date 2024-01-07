@@ -12,7 +12,7 @@ void	Harl::info()
 	std::cout << "[ INFO ]" << std::endl;
 	std::cout << "I cannot believe adding extra bacon costs more money." << std::endl;
 	std::cout << "You didnt put enough bacon in my burger!" << std::endl;
-	std::cout << "If you did, I wouldnt be asking for more!" << std::endl;
+	std::cout << "If you did, I wouldn't be asking for more!" << std::endl;
 }
 
 void	Harl::warning()
@@ -34,7 +34,7 @@ void Harl::complain(std::string level)
 
     void (Harl::*funcInfo[4]) () = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
-    for (int i = 0; i < levelInfo->size(); i++)
+    for (int i = 0; i < (int)levelInfo->size(); i++)
     {
         if (level == levelInfo[i])
             (this->*funcInfo[i])();

@@ -1,19 +1,21 @@
-NAME			= replace
-CC				= c++
-CPPFLAGS		= -Wall -Werror -Wextra -std=c++98
-SOURCE			= main.cpp Replace.cpp
-OBJS			= $(SOURCE:.cpp=.o)
-RM				= rm -rf
+NAME		= replace
+CC			= c++
+SOURCE		= main.cpp Replace.cpp
+OBJS		= $(SOURCE:.cpp=.o)
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
+RM 			= rm -rf
 
-all:			$(NAME)
+all:		$(NAME)
 
-$(NAME):		$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
+$(NAME):	$(OBJS)
+			$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
-clean:			$(RM) $(OBJS)
+clean:
+			$(RM) $(OBJS)
 
-flcean:			clean
-				$(RM)	$(NAME)
+fclean:		clean
+			$(RM) $(NAME)
 
-re:				flcean all
+re:			fclean all
 
-.PHONY:			all clean fclean re
+.PHONY:		all clean fclean re
