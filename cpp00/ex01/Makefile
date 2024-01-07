@@ -1,21 +1,20 @@
 NAME		= phonebook
 CC	 		= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
-SOURCE		= main.cpp contact.cpp phonebook.cpp
-OBJS		= $(SOURCE:.cpp=.o)
+SOURCE		= main.cpp
 RM			= rm -rf
 
-all: $(NAME)
+all: 		$(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+$(NAME): 	$(SOURCE)
+			$(CC) $(CPPFLAGS) $(SOURCE) -o $(NAME)
 
 clean:
-	$(RM) $(OBJ)
+			$(RM) $(NAME)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean: 	clean
+			$(RM) $(NAME)
 
-re: fclean $(NAME)
+re: 		fclean all
 
-.PHONY: all clean fclean re
+.PHONY: 	all clean fclean re

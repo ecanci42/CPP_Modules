@@ -3,15 +3,13 @@
 
 # include <iostream>
 class Contact;
-# include "contact.hpp"
+# include "Contact.hpp"
 
 class PhoneBook
 {
     private:
             Contact book[8];
-            int count = 0;
-            int size = 0;
-
+            int count;
             
     public:
     
@@ -69,7 +67,6 @@ class PhoneBook
 
             void print(Contact contact)
             {
-                // sadece dolu olanlar yazılmalı
                 std::cout << "\nAll information that we have:\n\n";
                 std::cout << "First Name: " << contact.get_firstname() << std::endl;
                 std::cout << "Last Name: " << contact.get_lastname() << std::endl;
@@ -101,7 +98,7 @@ class PhoneBook
                 {
                     std::cout << "Enter the index: ";
                     std::getline(std::cin, str);
-                    int turnInt = std::stoi(str);
+                    int turnInt = std::atoi(str.c_str());
                     if (!(turnInt >= 1 && turnInt <= 8))
                     {
                         std::cout << "Invalid index! Try again!\n";

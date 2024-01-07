@@ -1,6 +1,6 @@
-#include "contact.hpp"
+#include "Contact.hpp"
 #include <iostream>
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
 int main()
 {
@@ -9,7 +9,6 @@ int main()
     
     while (input != "EXIT")
     {
-        Menu:
         std::cout << "\n....::::MENU::::....\n" << std::endl;
         std::cout << "ADD" << std::endl;
         std::cout << "SEARCH" << std::endl;
